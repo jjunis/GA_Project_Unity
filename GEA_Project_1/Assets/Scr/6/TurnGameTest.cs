@@ -1,28 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class TurnGameTest : MonoBehaviour
 {
-    private int turncount;
-    // Start is called before the first frame update
+
+    private SimplePriorityQueue<(string name, int speed, float nextTurnTime)> turnQueue
+        = new SimplePriorityQueue<(string, int, float)>();
+
+    private int turnCount = 1;
+
     void Start()
     {
-        var queue = new SimplePriorityQueue<string>();
-        queue.Enqueue("전사", 5);
-        queue.Enqueue("마법사", 7);
-        queue.Enqueue("궁수", 10);
-        queue.Enqueue("도적", 12);
 
-        while (queue.Count < 0)
+        turnQueue.Enqueue(("전사", 5, 0f), 0f);
+        turnQueue.Enqueue(("궁수", 10, 0f), 0f);
+        turnQueue.Enqueue(("도적", 12, 0f), 0f);
+        turnQueue.Enqueue(("마법사", 7, 0f), 0f);
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && turnQueue.Count > 0)
         {
-            Debug.Log(queue.Dequeue());
+            var currentUnit = turnQueue.Dequeue();
+            Debug.Log($"{turnCount}턴 / {currentUnit.name} 의 턴입니다.");
+            turnCount++;
+            float cooldown = 100.0f / currentUnit.speed;
+            float newNextTurnTime = currentUnit.nextTurnTime + cooldown;
+
+            var nextTurnUnit = (currentUnit.name, currentUnit.speed, newNextTurnTime);
+
+            turnQueue.Enqueue(nextTurnUnit, newNextTurnTime);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

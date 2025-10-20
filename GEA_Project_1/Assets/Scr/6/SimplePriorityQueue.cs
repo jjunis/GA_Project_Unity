@@ -1,25 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using System;
+
 
 public class SimplePriorityQueue<T>
 {
+
     private List<(T item, float priority)> heap = new List<(T, float)>();
 
     public int Count => heap.Count;
 
-    public void Enqueue(T item, float priority)
+    public void Enqueue(T item, float prority)
     {
-        heap.Add((item, priority));
+
+        heap.Add((item, prority));
         HeapifyUp(heap.Count - 1);
     }
 
     public T Dequeue()
     {
         if (heap.Count == 0)
-            throw new InvalidOperationException("Queue is empty");
+            throw new InvalidCastException("Queue is empty");
         T rootItem = heap[0].item;
-        heap[0] = heap[^1]; // 뒤에서 첫번째 요소를 루트로 이동
+        heap[0] = heap[^1];
         heap.RemoveAt(heap.Count - 1);
         HeapifyDown(0);
         return rootItem;
@@ -43,7 +47,7 @@ public class SimplePriorityQueue<T>
         while (true)
         {
             int left = 2 * i + 1;
-            int right = 2 * i +  2;
+            int right = 2 * i + 2;
             int smallest = i;
 
             if (left <= last && heap[left].priority < heap[smallest].priority)
@@ -51,7 +55,7 @@ public class SimplePriorityQueue<T>
             if (right <= last && heap[right].priority < heap[smallest].priority)
                 smallest = right;
 
-            if (smallest == 1) break;
+            if (smallest == i) break;
 
             (heap[i], heap[smallest]) = (heap[smallest], heap[i]);
             i = smallest;
