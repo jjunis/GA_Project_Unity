@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generator: {fileID: 1977420278}
-  MazeCellPrefab: {fileID: 4411978222689584742, guid: bd4e4f92b474aa84990a1d181f2023ac,
+  mazeCubePrefab: {fileID: 4411978222689584742, guid: bd4e4f92b474aa84990a1d181f2023ac,
     type: 3}
 --- !u!1 &1063693858
 GameObject:
@@ -347,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1523279472
 Transform:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523279471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5cd0fbf2b2a1a418addea0ea188a2a, type: 3}
   m_Name: 
@@ -541,9 +541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5029a468babfbf6429e369c8819b6ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 15
-  height: 15
-  wallProbability: 0.5
+  width: 26
+  height: 26
+  wallProbability: 0.3
   wallPrefab: {fileID: 2507232073352766657, guid: 74ed35bffe43ba942ad7fe72c07a373b,
     type: 3}
   floorPrefab: {fileID: 2225370975061956078, guid: 4d560b96ab9d9a7469ec4defc7d17299,
@@ -579,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2082099942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082099941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91959ae5fab198a49a63079abdbf6f37, type: 3}
   m_Name: 

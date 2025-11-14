@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class RandomMazeGenerator : MonoBehaviour
 {
-    public int width = 15;
-    public int height = 15;
+    public int width = 21;
+
+    public int height = 21;
+
     [Range(0f, 1f)]
+
     public float wallProbability = 0.5f;
 
     public GameObject wallPrefab;
